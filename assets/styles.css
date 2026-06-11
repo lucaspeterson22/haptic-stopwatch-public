@@ -1,0 +1,275 @@
+/* Haptic Stopwatch — shared site styles
+   Brand: bright cyan pulse on near-black, echoing the app icon. */
+
+:root {
+  --bg: #0a0d0e;
+  --bg-elev: #11171a;
+  --surface: #151c20;
+  --border: #213035;
+  --text: #e8f3f4;
+  --text-dim: #9fb4b8;
+  --text-faint: #6b8085;
+  --accent: #2be5e5;
+  --accent-soft: rgba(43, 229, 229, 0.14);
+  --accent-glow: rgba(43, 229, 229, 0.35);
+  --radius: 16px;
+  --maxw: 760px;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  background-image: radial-gradient(
+      900px 500px at 50% -10%,
+      rgba(43, 229, 229, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(700px 400px at 100% 100%, rgba(43, 229, 229, 0.05), transparent 70%);
+  background-attachment: fixed;
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  padding: 56px 0 28px;
+  text-align: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px var(--border), 0 8px 30px var(--accent-glow);
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-name .pulse {
+  color: var(--accent);
+}
+
+/* ---------- Hero (landing) ---------- */
+
+.hero {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -0.03em;
+  margin: 0.2em 0 0.3em;
+  line-height: 1.1;
+}
+
+.hero p.lead {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  max-width: 540px;
+  margin: 0 auto 32px;
+}
+
+.cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px 0;
+}
+
+@media (max-width: 560px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: block;
+  text-align: left;
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -12px var(--accent-glow);
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.card .arrow {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---------- Legal pages ---------- */
+
+.legal {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 36px 40px;
+  margin: 16px 0 48px;
+}
+
+@media (max-width: 560px) {
+  .legal {
+    padding: 8px 22px 32px;
+  }
+}
+
+.legal h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin-top: 32px;
+}
+
+.legal h2 {
+  font-size: 1.25rem;
+  margin-top: 2em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--border);
+  letter-spacing: -0.01em;
+}
+
+.legal h2:first-of-type {
+  border-top: none;
+}
+
+.legal h3 {
+  font-size: 1.05rem;
+  margin-top: 1.6em;
+  color: var(--accent);
+}
+
+.legal a {
+  color: var(--accent);
+}
+
+.legal ul {
+  padding-left: 1.2em;
+}
+
+.legal li {
+  margin: 0.4em 0;
+}
+
+.legal strong {
+  color: var(--text);
+}
+
+.updated {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+.tldr {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 24px 0;
+  color: var(--text);
+}
+
+.tldr strong {
+  color: var(--accent);
+}
+
+/* ---------- Nav / footer ---------- */
+
+.backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin: 8px 0 0;
+}
+
+.backlink:hover {
+  color: var(--accent);
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  padding: 32px 0 56px;
+}
+
+.site-footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent
+  );
+  border: none;
+  margin: 40px 0;
+}
